@@ -27,8 +27,8 @@ public extension UIView {
     translatesAutoresizingMaskIntoConstraints = false
     topAnchor.constraint(equalTo: to.topAnchor, constant: insets.top).isActive = true
     bottomAnchor.constraint(equalTo: to.bottomAnchor, constant: -insets.bottom).isActive = true
-    leftAnchor.constraint(equalTo: to.leftAnchor, constant: insets.left).isActive = true
-    rightAnchor.constraint(equalTo: to.rightAnchor, constant: -insets.right).isActive = true
+    leadingAnchor.constraint(equalTo: to.leadingAnchor, constant: insets.left).isActive = true
+    trailingAnchor.constraint(equalTo: to.trailingAnchor, constant: -insets.right).isActive = true
   }
   
   func addSubviews(autoLayoutIsEnable: Bool = true, _ subviews: UIView...) {
