@@ -9,7 +9,9 @@ import UIKit
 
 public extension UITableView {
   
-  func dequeReusebleCell<T: UITableViewCell>(type: T.Type, indexPath: IndexPath) -> T {
+  func dequeReusebleCell<T: UITableViewCell>(
+    type: T.Type,
+    indexPath: IndexPath) -> T {
     guard let cell = dequeueReusableCell(withIdentifier: T.className, for: indexPath) as? T else {
       fatalError("dequeReusebleCell error")
     }

@@ -10,7 +10,10 @@ import UIKit
 public extension UIStackView {
   
   @discardableResult
-  func horizontal(spacing: CGFloat = 0, alignment: Alignment = .fill, distribution: Distribution = .fill) -> Self {
+  func horizontal(
+    spacing: CGFloat = 0,
+    alignment: Alignment = .fill,
+    distribution: Distribution = .fill) -> Self {
     with {
       $0.axis = .horizontal
       $0.spacing = spacing
@@ -20,7 +23,10 @@ public extension UIStackView {
   }
   
   @discardableResult
-  func vertical(spacing: CGFloat = 0, alignment: Alignment = .fill, distribution: Distribution = .fill) -> Self {
+  func vertical(
+    spacing: CGFloat = 0,
+    alignment: Alignment = .fill,
+    distribution: Distribution = .fill) -> Self {
     with {
       $0.axis = .vertical
       $0.spacing = spacing
