@@ -15,13 +15,13 @@ public protocol ObjectWithable: AnyObject {
   /// - Parameter closure: A closure `self` as the argument.
   /// - Returns: Simply returns the instance after called the `closure`.
   @discardableResult
-  func with(_ closure: (_ instance: T) -> Void) -> T
+  func build(_ closure: (_ instance: T) -> Void) -> T
 }
 
 extension ObjectWithable {
   
   @discardableResult
-  public func with(_ closure: (_ instance: Self) -> Void) -> Self {
+  public func build(_ closure: (_ instance: Self) -> Void) -> Self {
     closure(self)
     return self
   }
@@ -45,7 +45,7 @@ public protocol Withable {
 extension Withable {
 
   @discardableResult
-  public func with(_ closure: (_ instance: inout Self) -> Void) -> Self {
+  public func build(_ closure: (_ instance: inout Self) -> Void) -> Self {
     var copy = self
     closure(&copy)
     return copy

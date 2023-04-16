@@ -14,7 +14,7 @@ public extension UIStackView {
     spacing: CGFloat = 0,
     alignment: Alignment = .fill,
     distribution: Distribution = .fill) -> Self {
-    with {
+    build {
       $0.axis = .horizontal
       $0.spacing = spacing
       $0.alignment = alignment
@@ -27,7 +27,7 @@ public extension UIStackView {
     spacing: CGFloat = 0,
     alignment: Alignment = .fill,
     distribution: Distribution = .fill) -> Self {
-    with {
+    build {
       $0.axis = .vertical
       $0.spacing = spacing
       $0.alignment = alignment
@@ -35,10 +35,16 @@ public extension UIStackView {
     }
   }
   
-  @discardableResult
-  func views(_ views: UIView ...) -> Self {
-    views.forEach { self.addArrangedSubview($0) }
-    return self
+  func addArrangedSubviews(_ views: UIView...) {
+    for view in views {
+      addArrangedSubview(view)
+    }
+  }
+  
+  func removeArrangedSubviews() {
+    for view in arrangedSubviews {
+      removeArrangedSubview(view)
+    }
   }
   
 }
