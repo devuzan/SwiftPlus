@@ -9,7 +9,8 @@ import UIKit
 
 public extension UIImageView {
   
-  func load(url: URL, placeholder: UIImage? = nil, _ completion: (() -> Void)? = nil) {
+  func load(url: URL?, placeholder: UIImage? = nil, _ completion: (() -> Void)? = nil) {
+    guard let url = url else { return }
     let cache = URLCache.shared
     let request = URLRequest(url: url)
     if let data = cache.cachedResponse(for: request)?.data, let image = UIImage(data: data) {
