@@ -16,7 +16,7 @@ public extension UICollectionView {
   }
 
   @discardableResult
-  func dequeueCell<T: UICollectionViewCell>(withType type: UICollectionViewCell.Type, for indexPath: IndexPath) -> T? {
+  func dequeueCell<T: UICollectionViewCell>(withType type: T.Type, for indexPath: IndexPath) -> T? {
     return dequeueReusableCell(withReuseIdentifier: type.className, for: indexPath) as? T
   }
   
