@@ -9,10 +9,10 @@ import UIKit
 
 public extension UIImageView {
   
-  func load(url: URL?, placeholder: UIImage? = nil, _ completion: (() -> Void)? = nil) {
-    guard let url = url else { return }
+  func load(url: String?, placeholder: UIImage? = nil, _ completion: (() -> Void)? = nil) {
+    guard let urlString = url, let fullUrl = URL(string: urlString) else { return }
     let cache = URLCache.shared
-    let request = URLRequest(url: url)
+    let request = URLRequest(url: fullUrl)
     if let data = cache.cachedResponse(for: request)?.data, let image = UIImage(data: data) {
       DispatchQueue.main.async {
         self.image = image
