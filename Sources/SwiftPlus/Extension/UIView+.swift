@@ -45,4 +45,12 @@ public extension UIView {
     layer.mask = mask
   }
   
+  func addTopShadow(shadowColor : UIColor, shadowOpacity : CGFloat, shadowRadius : CGFloat, offset:CGSize){
+    self.layer.shadowColor = shadowColor.cgColor
+    self.layer.shadowOffset = offset
+    self.layer.shadowOpacity = Float(shadowOpacity)
+    self.layer.shadowRadius = shadowRadius
+    self.clipsToBounds = false
+  }
+
 }
