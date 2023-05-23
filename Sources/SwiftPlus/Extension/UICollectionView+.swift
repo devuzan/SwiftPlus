@@ -20,5 +20,11 @@ public extension UICollectionView {
     return dequeueReusableCell(withReuseIdentifier: type.className, for: indexPath) as! T
   }
   
+  @discardableResult
+  func registerView<T: UICollectionReusableView>(_ view: T.Type, kind: String) -> Self {
+     register(view, forSupplementaryViewOfKind: kind, withReuseIdentifier: view.className)
+     return self
+   }
+  
 }
 

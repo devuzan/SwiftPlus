@@ -7,10 +7,14 @@
 
 import UIKit
 
-extension UIApplication {
+public extension UIApplication {
   
   func topMostViewController() -> UIViewController? {
     return UIWindow.key!.rootViewController?.topMostViewController()
   }
   
+  class var topInset: CGFloat {
+    UIApplication.shared.keyWindow?.safeAreaInsets.top ?? UIApplication.shared.statusBarFrame.size.height
+  }
+
 }
