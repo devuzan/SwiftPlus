@@ -67,4 +67,22 @@ public extension UIView {
     return blurBackground
   }
   
+  @discardableResult
+  func addBlackGradientLayerInForeground(frame: CGRect, colors:[UIColor]) -> Self {
+    let gradient = CAGradientLayer()
+    gradient.frame = frame
+    gradient.colors = colors.map{$0.cgColor}
+    self.layer.addSublayer(gradient)
+    return self
+  }
+
+  @discardableResult
+  func addBlackGradientLayerInBackground(frame: CGRect, colors:[UIColor]) -> Self {
+    let gradient = CAGradientLayer()
+    gradient.frame = frame
+    gradient.colors = colors.map{$0.cgColor}
+    self.layer.insertSublayer(gradient, at: 0)
+    return self
+  }
+  
 }
