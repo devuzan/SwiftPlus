@@ -33,9 +33,9 @@ public extension UIViewController {
           alertController.preferredAction = action
         }
       }
-      DispatchQueue.main.async { [weak self] in
+      DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: { [weak self] in
         self?.present(alertController, animated: true, completion: nil)
-      }
+      })
       return alertController
     }
   
