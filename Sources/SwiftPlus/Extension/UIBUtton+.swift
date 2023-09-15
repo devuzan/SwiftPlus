@@ -38,5 +38,14 @@ public extension UIButton {
     return self
   }
   
+  @discardableResult
+  func makeCircular(cornerRadius: CGFloat, borderWidth: CGFloat, borderColor: UIColor) -> Self {
+    self.layer.cornerRadius = cornerRadius
+    self.clipsToBounds = true
+    self.layer.borderWidth = borderWidth
+    self.layer.borderColor = borderColor.cgColor
+    return self
+  }
+
 }
 
