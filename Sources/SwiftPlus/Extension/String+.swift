@@ -43,5 +43,9 @@ public extension String {
     let fontAttributes = [NSAttributedString.Key.font: font]
     return self.size(withAttributes: fontAttributes)
   }
+  
+  func toURL() -> URL? {
+    URL(string: self)
+  }
 
 }
