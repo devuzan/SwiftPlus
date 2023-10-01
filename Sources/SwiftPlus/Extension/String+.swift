@@ -45,7 +45,12 @@ public extension String {
   }
   
   func toURL() -> URL? {
-    URL(string: self)
+    if let url = URL(string: self) {
+      if UIApplication.shared.canOpenURL(url) {
+        return url
+      }
+    }
+    return nil
   }
 
 }
