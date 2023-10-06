@@ -16,7 +16,8 @@ public extension UIViewController {
     buttonTitles: [String]? = nil,
     highlightedButtonIndex: Int? = nil,
     completion: ((Int) -> Void)? = nil,
-    style: UIAlertController.Style = .alert) -> UIAlertController {
+    style: UIAlertController.Style = .alert,
+    withCancel: Bool = false) -> UIAlertController {
       let alertController = UIAlertController(title: title, message: message, preferredStyle: style)
       var allButtons = buttonTitles ?? [String]()
       if allButtons.count == 0 {
@@ -33,6 +34,11 @@ public extension UIViewController {
           alertController.preferredAction = action
         }
       }
+      if withCancel {
+        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: { _ in })
+        alertController.addAction(cancelAction)
+      }
+
       DispatchQueue.main.asyncAfter(deadline: .now() + 0.3, execute: { [weak self] in
         self?.present(alertController, animated: true, completion: nil)
       })
